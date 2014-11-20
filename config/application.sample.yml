@@ -1,3 +1,8 @@
+# GOOGLE_CLIENT_DOMAIN: example.com
+GOOGLE_CLIENT_ID: AAA
+GOOGLE_CLIENT_SECRET: AAA
+
+
 development:
 
 test:

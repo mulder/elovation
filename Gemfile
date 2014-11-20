@@ -15,6 +15,7 @@ gem 'dynamic_form'
 gem 'elo'
 gem 'trueskill', github: 'saulabs/trueskill', require: 'saulabs/trueskill'
 
+gem 'omniauth-google-oauth2'
 gem 'figaro'
 
 group :production do
