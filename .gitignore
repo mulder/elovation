@@ -20,3 +20,5 @@
 /.ruby-version
 .DS_Store
 elovation_development
+
+config/application.yml
