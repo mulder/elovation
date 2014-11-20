@@ -13,11 +13,10 @@ class AuthController < ApplicationController
   def callback
     player = Player.find_or_create_by(guid: guid)
 
-    player.update_attributes(email: identity.email,
-                           name: [identity.first_name, identity.last_name].join(' '))
-                           # access_token: credentials.token,
-                           # refresh_token: credentials.refresh_token,
-                           # token_expires_at: Time.at(credentials.expires_at))
+    player.update_attributes(
+      email: identity.email,
+      name: [identity.first_name, identity.last_name].join(' ')
+    ) if player.new_record?
 
     login_user!(player)
     redirect_to root_path
