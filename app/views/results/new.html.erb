@@ -5,12 +5,12 @@
     <%= select "result[teams][#{index}]", "players", player_options, {include_blank: ''}, class: "players", multiple: @game.max_number_of_players_per_team != 1, "data-placeholder" => "Team #{index + 1}" %>
 
     <% if index != @result.teams.size - 1 %>
-      <br/>
+
       <% if @game.allow_ties %>
         <%= select "result[teams][#{index}]", :relation, ["defeats", "ties"], {} %>
       <% else %>
         <%= hidden_field_tag "result[teams][#{index}][relation]", :defeats, {} %>
-        Defeats:
+        <span>Defeats</span>
       <% end %>
     <% end %>
   <% end %>

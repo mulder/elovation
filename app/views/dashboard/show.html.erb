@@ -1,12 +1,12 @@
 <div class="row-fluid">
 
 	<div class='span8'>
-		<h1>Elovation Games</h1>
-		<%= link_to "New Game", new_game_path, class: "btn btn-primary" %>
+    <h1>Shopify TO Pong</h1>
+    <%#= link_to "New Game", new_game_path, class: "btn btn-primary" %>
 
 		<ul id='games-list'>
-		<% Game.all.sort_by(&:name).each do |game| %>
-		  <li class="<%= "active" if @game == game %> game-list-item">
+    <% @games.sort_by(&:name).each do |game| %>
+      <li class="game-list-item">
 		    <%= link_to game_path(game) do %>
 		    	<h3 class='game-title'><%= game.name %></h3>
 		    	<ul class='game-params'>
@@ -16,8 +16,7 @@
 
 		    	</ul>
 
-          <% result = game.recent_results.limit(1).first %>
-          <% if result %>
+          <% if result = game.recent_results.limit(1).first %>
             <div class='recent-result'>
               <h4>Last game</h4>
               <div class='description'>
@@ -28,17 +27,13 @@
                       <strong><%= winner.name %></strong>
                     </span>
                   <% end %>
-                  <% if i == 0 %>
-                    defeated
-                  <% end %>
+                  <%= cycle('defeated', '') %>
                 <% end %>
                 <br/>
                 <time><%= format_time(result.created_at) %></time>
               </div>
             </div>
           <% end %>
-
-
 		    <% end %>
 		  </li>
 		<% end %>
@@ -47,8 +42,8 @@
 
 	<div class='span4'>
 		<div class='well'>
-			<h2>Players</h2>
-			<%= link_to "New Player", new_player_path, class: "btn" %>
+      <h2>Players</h2>
+      <%= link_to "New Player", new_player_path, class: "btn" %>
 
 			<ul id='players-list'>
 				<% Player.all.sort_by(&:name).each do |player| %>
