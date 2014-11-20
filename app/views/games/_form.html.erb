@@ -36,6 +36,14 @@
   </div>
 
   <div class="control-group">
+    <%= f.label :rules, 'Game Rules', class: "control-label" %>
+    <div class="controls">
+      <%= f.text_area :rules, class: "", rows: 20, cols: 120 %>
+      <span class="help-inline">Leave blank for no rules</span>
+    </div>
+  </div>
+
+  <div class="control-group">
     <div class="controls">
       <%= f.check_box :allow_ties, class: "input-mini" %>
       <%= f.label :allow_ties, class: "control-label" %>

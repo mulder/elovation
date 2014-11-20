@@ -51,6 +51,7 @@ class GamesController < ApplicationController
 
   def games_params
     params.require(:game).permit(:name,
+                                 :rules,
                                 :rating_type,
                                 :min_number_of_teams,
                                 :max_number_of_teams,
